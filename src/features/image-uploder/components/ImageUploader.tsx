@@ -1,8 +1,17 @@
-import { Text, Button, Container, Image, Img, Flex } from "@chakra-ui/react";
+import {
+  Text,
+  Button,
+  Container,
+  Image,
+  Img,
+  Flex,
+  Center,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { useDropzone, DropzoneOptions } from "react-dropzone";
 
 import upload from "../../../images/upload.png";
+import noImageSelected from "../../../images/noImageSelected.png";
 
 const ImageUploader = () => {
   const [image, setImage] = useState(null);
@@ -59,8 +68,34 @@ const ImageUploader = () => {
           <input name={"image"} {...getInputProps()} />
         </Flex>
       </Container>
+      {image && (
+        <Center mb={5}>
+          <Button colorScheme="red" variant="outline">
+            Process the image
+          </Button>
+        </Center>
+      )}
+      {!image && (
+        <Container
+          maxW={"auto"}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+        >
+          <Text fontSize={"24px"} fontWeight={"bold"} color={"red.500"}>
+            Oops! No image selected yet.
+          </Text>
+          <Img
+            display={"flex"}
+            src={noImageSelected}
+            alt="preview"
+            mt={10}
+            mb={10}
+          />
+        </Container>
+      )}
       <Container maxW={"auto"} display={"flex"} justifyContent={"center"}>
-        {image && <Img src={image} alt="preview" mb={10} />}
+        {image && <Img display={"flex"} src={image} alt="preview" mb={10} />}
       </Container>
     </>
   );
