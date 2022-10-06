@@ -42,6 +42,7 @@ const ImageUploader = () => {
         padding="4"
         border="2px dashed rgba(0,0,0,0.1)"
         alignItems="center"
+        w={"80%"}
         borderRadius="md"
         maxW={"auto"}
         mb={5}
@@ -50,15 +51,15 @@ const ImageUploader = () => {
         zIndex={0}
       >
         <Flex alignItems={"center"}>
-          <Text color={"#A0AEC0"}>{"Browse image or drag&drop image"}</Text>
+          <Text color={"red.500"} fontWeight={"medium"}>
+            {"Browse image or drag&drop image"}
+          </Text>
           <Button
             _hover={{
               background: "#fff",
-              color: "#ED2130",
             }}
             _focus={{
               background: "#fff",
-              color: "#ED2130",
             }}
             backgroundColor={"#fff"}
             onClick={open}
@@ -82,7 +83,7 @@ const ImageUploader = () => {
           flexDirection={"column"}
           alignItems={"center"}
         >
-          <Text fontSize={"24px"} fontWeight={"bold"} color={"red.500"}>
+          <Text fontSize={"24px"} fontWeight={"medium"} color={"red.500"}>
             Oops! No image selected yet.
           </Text>
           <Img
